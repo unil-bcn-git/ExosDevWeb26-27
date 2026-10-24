@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Basis</title>
+</head>
+<body>
+    <h1>TEST Console</h1>
+    <script>
+    
+        class basic_tools{
+            constructor(name, title){
+                this.name = name;
+                this.title = title;
+                const newDiv = document.createElement("div");
+                newDiv.setAttribute("id", this.name);
+
+                // and give it some content
+                const newContent = document.createTextNode(this.title);
+
+                // add the text node to the newly created div
+                newDiv.appendChild(newContent);
+
+                // add the newly created element and its content into the DOM
+                const currentDiv = document.getElementById(this.name);
+                document.body.insertBefore(newDiv, currentDiv); 
+            } 
+
+            set_text(texte){
+                document.getElementById(this.name).innerHTML += `${texte} <br />`;
+            }
+
+            set_title(texte){
+                document.getElementById(this.name).innerHTML += `<h3>${texte}</h3>`;
+            }
+
+            jump_lines(){
+                document.getElementById(this.name).innerHTML += `<br /><br />`;
+            }
+
+            element_link(){
+                return (document.getElementById(this.name))
+            }
+
+        }
+/*   
+        function addElement() {
+            // create a new div element
+            const newDiv = document.createElement("div");
+            newDiv.setAttribute("id", "this.name");
+
+            // and give it some content
+            const newContent = document.createTextNode("Hi there and greetings!");
+
+            // add the text node to the newly created div
+            newDiv.appendChild(newContent);
+
+            // add the newly created element and its content into the DOM
+            const currentDiv = document.getElementById("div1");
+            document.body.insertBefore(newDiv, currentDiv);
+            }
+
+            addElement();
+*/            
+            
+        let mytool = new basic_tools("title 1", "Titre 1");
+
+        let mybarre = new basic_tools("barre", "Barre 1")
+
+        let link = mybarre.element_link()
+
+        link.style.backgroundColor = "red";
+
+        mytool.set_title ("TITLE");
+        
+        mytool.set_text ("TOTO")
+        mytool.set_text ("TITI")
+        mytool.set_text ("TUTU")
+
+    </script>
+</body>
+</html>

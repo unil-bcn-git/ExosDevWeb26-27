@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Test des conditions</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="toto" style="color:blue;">C'est un super texte que voici</div>
+        <div id="toto2" style="color:green;">aaa</div>
+        <div id="toto3" style="color:blue;"></div> <br/>
+        <div id="toto4" style="color:blue;">abecidofugyh</div>
+        <div id="sentence"></div>
+
+        <script>
+            let mon_div = document.getElementById("toto");
+            let mon_div2 = document.getElementById("toto2");
+            let mon_div3 = document.getElementById("toto3");
+            let mon_div4 = document.getElementById("toto4");
+            let a = 8;
+            let b = -3;
+
+            function set_title(texte){
+                document.getElementById("sentence").innerHTML += `<h3>${texte}</h3>`;
+            }
+            
+            function set_texte(texte){
+                document.getElementById("sentence").innerHTML += `${texte} <br />`;
+            }
+
+            function jump_lines(){
+                document.getElementById("sentence").innerHTML += `<br /><br />`;
+            }
+
+            function test_ma_div_bleue(un_div){
+                let texte = ""
+                if (!un_div){
+                    texte = `La div est null`;
+                }
+                else {
+                    if (un_div.style.color == "blue"){
+                        texte = `La div "${un_div.innerText}" est <b>bleue</b>`;
+                    } 
+                    else {
+                        texte = `La div "${un_div.innerText}" n'est pas bleue`;
+                    } 
+                }     
+                set_texte(texte);
+            }
+
+            function test_mon_innertest_vide(un_div){
+                let texte = ""
+                if (!un_div){
+                    texte = `La div est null`;
+                } else if (un_div.innerText == "" || un_div.innerText == " " ) {
+                    texte = `Le contenu de "${un_div.innerText}" est vide`;
+                }
+                else
+                {
+                    texte = `Le contenu de "${un_div.innerText}" est non-vide`;
+                }   
+                set_texte(texte);
+            }
+
+            function test_length(un_div){
+                let texte = "" ;
+                if (!un_div){
+                    texte = `La div est null`;
+                }
+                else if (un_div.innerText.length <= 10){
+                        texte = `La longueur de "${un_div.innerText}" est plus petite ou égale à 10`;
+                    }  
+                else{
+                    texte = `La longueur de "${un_div.innerText}" est plus grande que 10`
+                }             
+                set_texte(texte);
+            }
+
+            function is_even(value){
+                let texte = "paire";
+                if (value % 2 !== 0){
+                    texte = "impaire";
+                }          
+                texte1 = `La valeur ${value} est ${texte}`   
+                set_texte(texte1);
+            }
+
+            function is_divisible_by_4(value){
+                let texte = "est divisible par 4";
+                if (value % 4 !== 0){
+                    texte = "n'est pas divisible par 4";
+                }          
+                texte1 = `La valeur ${value} ${texte}`   
+                set_texte(texte1);
+            }
+
+            // - Si `a` *ou* `b` sont plus petits que respecitvement 10 et 7
+            function is_a_ou_b_sm_than(value1, value2){
+                let texte = "ne sont pas plus petits que respectivement 10 et 7";
+                if (value1 < 10 || value2 < 7 ){
+                    texte = "sont plus petites que respectivement 10 et 7";
+                }          
+                texte1 = `Les valeurs ${value1} ou ${value2} ${texte}`   
+                set_texte(texte1);
+            }
+
+            // Si `a` *et* `b` sont plus grands ou égals à 8, sinon si `a` *ou* `b` est plus petit que 0
+            function new_conditions_a_ou_b(value1, value2){
+                let texte = `${value1} et ${value2} ne sont pas plus grands ou égaux à 8, pas plus que ${value1} ou ${value2} est plus petit que 0`;
+                if (value1 > 8 && value2 > 8 ){
+                    texte = `${value1} et ${value2} sont plus grands ou égaux à 8`;
+                } else if (value1 < 0 || value2 < 0){
+                    texte = `${value1} ou ${value2} est plus petit que 0`;
+                }         
+                set_texte(texte);
+            }
+
+        
+            function test_caps_position(un_div, position){
+                let texte = "" ;
+                substring = ['a','e', 'i', 'o', 'u', 'y'];
+                let position_intern = position - 1;
+                if (!un_div){
+                    texte = "La div est null";
+                }
+                else {
+                    let position_str = "***";
+                    if (position == 1){
+                        position_str = "1ère";
+                    }
+                    else{
+                        position_str = `${position}ème`;
+                    }
+                    chosen_char = un_div.innerText[position_intern];
+                    if (!substring.includes(chosen_char)){
+                        texte = `La ${position_str} lettre du contenu de "${un_div.innerText}", la lettre "${chosen_char}", n'est pas une voyelle minuscule`;
+                    } else {
+                       texte = `La ${position_str} lettre du contenu de "${un_div.innerText}", la lettre "${chosen_char}", est une voyelle minuscule`;
+                    }                     
+                }       
+                set_texte(texte);  
+            }    
+
+            set_title("Test bleu")
+            test_ma_div_bleue(mon_div);
+            test_ma_div_bleue(mon_div2);
+            test_ma_div_bleue(mon_div3);
+            test_ma_div_bleue(mon_div4);
+  //          jump_lines()
+
+            set_title("Test vide")
+            test_mon_innertest_vide(mon_div);
+            test_mon_innertest_vide(mon_div2);
+            test_mon_innertest_vide(mon_div3);
+            test_mon_innertest_vide(mon_div4);            
+  //          jump_lines()
+
+            set_title("Test longueur")
+            test_length(mon_div);
+            test_length(mon_div2);
+            test_length(mon_div3);
+            test_length(mon_div4);            
+ //            jump_lines()
+            
+            set_title("Test parité")
+            is_even(a);
+            is_even(b);
+            
+            set_title("Test division par quatre")
+            is_divisible_by_4(a);
+            is_divisible_by_4(b);
+ //           jump_lines()
+
+            set_title("Test conditions 1")
+            is_a_ou_b_sm_than(a, b);
+            is_a_ou_b_sm_than(134, 99);
+ //           jump_lines()
+
+            set_title("Test conditions 2")
+            new_conditions_a_ou_b(a, b);
+            new_conditions_a_ou_b(10, 12);
+            new_conditions_a_ou_b(a, 3);
+//
+
+            set_title("Test minuscules")
+            test_caps_position(mon_div, 7)
+            test_caps_position(mon_div2, 2)
+            test_caps_position(mon_div3, 2)            
+            test_caps_position(mon_div4, 4)
+
+        </script>
+    </body>
+</html>
+

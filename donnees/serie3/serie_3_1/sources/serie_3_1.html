@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Les arbres</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <h1 id="main-heading">Les arbres</h1>
+
+        <div id="sentence"></div>
+        
+        <script>
+            let arbres = [
+                {
+                    espece: "genévrier",
+                    feuillu: false
+                },{
+                    espece: "chêne",
+                    feuillu: true
+                },{
+                    espece: "peuplier",
+                    feuillu: true
+                },{
+                    espece: "sapin",
+                    feuillu: false
+                },{
+                    espece: "laurier",
+                    feuillu: true
+                },{
+                    espece: "pin",
+                    feuillu: false
+                },{
+                    espece: "mélèze",
+                    feuillu: false
+                },{
+                    espece: "if",
+                    feuillu: false
+                }
+            ]
+        
+            function print_tree(arbre){
+                const feuiilu_string = "est un feuillu";
+                const not_feuiilu_string = "n'est pas un feuillu";
+                var string;
+                var length_tree_string;
+
+                if(arbre.feuillu){
+                    string = `Le ${arbre.espece} ${feuiilu_string}.`;
+                }
+                else {
+                    string = `Le ${arbre.espece} ${not_feuiilu_string}.`;   
+                }
+                length_tree_string = arbre.espece.length;
+                if(length_tree_string>= 6){
+                    string += ` Longueur du nom : ${length_tree_string} lettres.`
+                }
+                else if(length_tree_string >= 4 && length_tree_string <= 5){
+
+                }
+                else {
+                    string = `L'arbre "${arbre.espece}" n'est pas traité.`
+                }
+                return (string)
+
+            }
+
+           let nb_arbres = arbres.length;
+           let texte = "";
+
+            for (let i = 0; i < nb_arbres; i++) {
+                texte = print_tree(arbres[i]);
+                document.getElementById("sentence").innerHTML += `${texte} <br />`;
+            }  
+ 
+            // document.getElementById("addy_lines").innerHTML + "<br />Name: <input type='text' id='Name' size=50 maxlength=50 /> Address: <input type='text' id='Address' size=50 maxlength=50 /> City: <input type='text' id='City' size=15 maxlength=15 /> State: <input type='text id='State' size=2 maxlength=2 /> Zip Code: <input type='text' id='Zip' size=5 maxlength=5 />";
+
+        </script>
+
+    </body>
+</html>
+

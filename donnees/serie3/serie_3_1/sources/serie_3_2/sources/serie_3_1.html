@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>La vie de la quille</title>
+        <link rel="stylesheet" href="./style.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+
+    <body>
+        <h1 id="main-heading">La vie de la quille</em></h1>
+        
+        <button id="myButton1">Moins</button>
+        <button id="myButton">Plus</button>
+
+        <p id="sentence">Valeur de vie = </p>
+        <div id="barre"></div>
+
+        <script>
+
+            const vie_totale_quille_percent = 100;
+            var sentence = document.querySelector("#sentence");
+            
+            class quille {
+                constructor() {
+                    this.vie_restante = vie_totale_quille_percent;
+                }
+                
+                remaining_vie(){
+                    return(this.vie_restante)
+                };
+
+                set_remaining_life(remaining_life){
+                    if (remaining_life >= 0 && remaining_life <= vie_totale_quille_percent)
+                    {
+                        this.vie_restante = remaining_life;
+                    }
+                }   
+
+                get_barre_de_vie(){               
+                    var barre_de_vie = "Barre de vie rouge";
+                    if(this.vie_restante >= 50){
+                        barre_de_vie = "Barre de vie verte";
+                    }
+                    else if(this.vie_restante < 50 && this.vie_restante >=25) {
+                        barre_de_vie = "Barre de vie orange";
+                    }
+                    return(barre_de_vie)
+                }
+
+                display_barre_de_vie(vie){                 
+                        document.getElementById("barre").style.backgroundColor = "red";
+                    if(this.vie_restante >= 50){
+//                      barre.style.background-color = "green";
+                        document.getElementById("barre").style.backgroundColor="green"
+                    }
+                    else if(this.vie_restante < 50 && this.vie_restante >=25) {
+                        document.getElementById("barre").style.backgroundColor="orange"
+                   }
+                 }
+            }
+
+            let quille1 = new quille();
+
+            sentence.textContent = `Valeur de vie = ${quille1.remaining_vie()}`  
+
+            function moins_function() {
+                quille1.set_remaining_life(quille1.remaining_vie()-10);
+                sentence.textContent = `Valeur de vie = ${quille1.remaining_vie()}`;
+                quille1.display_barre_de_vie(quille1.remaining_vie());
+            }
+
+            function plus_function() {
+                quille1.set_remaining_life(quille1.remaining_vie()+10);
+                sentence.textContent = `Valeur de vie = ${quille1.remaining_vie()}`;
+                quille1.display_barre_de_vie(quille1.remaining_vie());
+            }
+
+            document.getElementById('myButton1').addEventListener("click", moins_function);
+
+            document.getElementById('myButton').addEventListener('click', plus_function);
+
+        </script>
+
+    </body>
+</html>
+
