@@ -1,0 +1,28 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie 4 2 1</title>
+ </head>
+ <body>
+    <script>
+         // Affichez dans la console tous les nombres de 1 à 1000
+        let mot_choisi = "arbre";
+        let random_string = "";
+        const len_mot = mot_choisi.length;
+        document.write(`<p>Longueur de "${mot_choisi}" = ${len_mot}</p>`)
+        for(let i = 0; i < len_mot; i++){
+            a_random_num = Math.floor(Math.random() * 11);
+            console.log(a_random_num);
+            console.log(mot_choisi[i]);
+            random_string = ""
+            for (j = 0; j < a_random_num; j++){
+                random_string += mot_choisi[i];
+            }
+            document.write(`<p>${a_random_num} ${random_string}</p> `);
+        }
+    </script>
+ </body>
+ </html>
