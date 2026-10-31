@@ -17,18 +17,13 @@
                 [7,8,9]
             ]
 
-        function test_array(a_vector){
-            let temp_array = [];
+        function test_array(in_array, a_vector){
+            const in_array_lenth = in_array.length;
             const vector_length = a_vector.length;
-            console.log(`vector_length = ${vector_length}`);
-            for (let index = 0; index < temp_array.length; index++) {
-                console.log(`îndex = ${index}, l = ${temp_array[index].length}`);
-                for(let j = 0; j < temp_array[index].length; j++){
-                    if (a_vector[j] != undefined){
-                        temp_array[index][j] = a_vector[j];
-                    } else {
-                        temp_array[index][j] = 999;
-                    }
+            let temp_array = new Array(in_array_lenth).fill(new Array(vector_length));
+            for (let index = 0; index < in_array_lenth; index++) {
+                for(let j = 0; j < vector_length; j++){
+                  temp_array[index][j] = a_vector[j]
                 }
             }
             return (temp_array)
@@ -36,10 +31,10 @@
 
         function print_array(name, an_array){
             let temp_html = document.getElementById("demo").innerHTML + "<br>";
-            document.getElementById("demo").innerHTML = temp_html + `${name} <br>`;
+            document.getElementById("demo").innerHTML = temp_html + `${name}, rows = ${an_array.length}, columns = ${an_array[1].length} <br>`;
             temp_html = document.getElementById("demo").innerHTML;
             for (let i = 0; i < an_array.length; i++) {
-                for (let j = 0; j< an_array.length; j++){
+                for (let j = 0; j< an_array[1].length; j++){
                     temp_html = document.getElementById("demo").innerHTML;
                     document.getElementById("demo").innerHTML = temp_html + an_array[i][j] + " ";
                 }
