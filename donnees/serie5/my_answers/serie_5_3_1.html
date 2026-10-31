@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie 5.2</title>
+</head>
+<body>
+
+    <script>
+        function debug(){
+            console.log("Mon script execute cette ligne !");
+        }
+
+        function appel(text){
+            console.log("Hey! "+`${text}`);
+        }
+
+        function foisDeux(num){
+            console.log(`num = ${num}, fois deux = ${num*2}`);
+        }
+
+        function bizzareCetteFonction(num){
+            let temp_value = num;
+            if (num < 10) {
+                temp_value = 11*num + 1;
+
+            } else {
+                temp_value = 101*num - 1;
+            }
+            return (temp_value);
+        }
+
+        debug();
+        appel("Toto");
+        foisDeux(4);
+        console.log(bizzareCetteFonction(6));
+        console.log(bizzareCetteFonction(12));
+
+        const min_index = 6;
+        const max_index = 13;
+        for (let i = min_index; i <= max_index ; i++) {
+            const value = bizzareCetteFonction (i);
+            if (value <150 || value > 2500){
+                appel(value);
+            } else {
+                debug();
+                appel(value);
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
