@@ -4,10 +4,11 @@ for(let i = 0; i<8; i++){
         
         new_div = document.createElement("div")
 
-        new_div.innerHTML="&nbsp;"
+        new_div.innerHTML = `${i+1}.${j+1}`+ "&nbsp;";
 
-        if((j+i)%2==0){
+        if( j==i){
             new_div.className = "white"
+
         }else{
             new_div.className = "black"
         }
