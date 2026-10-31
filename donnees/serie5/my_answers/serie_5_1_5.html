@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>serie_5_1_5</title>
+</head>
+<body>
+    <p>
+        Écrivez une fonction qui prend un `Array` en paramètre et qui modifie toutes les lignes de `tab2d` en le paramètre 
+        passé (ex : maFonction(['a','b']) change `tab2d` en [['a','b'],['a','b'],['a','b']])
+    </p>
+    <script>
+        let tab2d = [
+                [1,2,3],
+                [4,5,6],
+                [7,8,9]
+            ]
+
+        function test_array(a_vector){
+            let temp_array = [];
+            const vector_length = a_vector.length;
+            console.log(`vector_length = ${vector_length}`);
+            for (let index = 0; index < temp_array.length; index++) {
+                console.log(`îndex = ${index}, l = ${temp_array[index].length}`);
+                for(let j = 0; j < temp_array[index].length; j++){
+                    if (a_vector[j] != undefined){
+                        temp_array[index][j] = a_vector[j];
+                    } else {
+                        temp_array[index][j] = 999;
+                    }
+                }
+            }
+            return (temp_array)
+        }
+
+        function print_array(name, an_array){
+            let temp_html = document.getElementById("demo").innerHTML + "<br>";
+            document.getElementById("demo").innerHTML = temp_html + `${name} <br>`;
+            temp_html = document.getElementById("demo").innerHTML;
+            for (let i = 0; i < an_array.length; i++) {
+                for (let j = 0; j< an_array.length; j++){
+                    temp_html = document.getElementById("demo").innerHTML;
+                    document.getElementById("demo").innerHTML = temp_html + an_array[i][j] + " ";
+                }
+                temp_html = document.getElementById("demo").innerHTML;
+                document.getElementById("demo").innerHTML = temp_html + "<br>";
+            }
+        }
+
+        let elem = document.createElement("div");
+        elem.setAttribute("id", "demo");
+        document.body.appendChild(elem);
+        document.getElementById("demo").innerHTML = "<p>Hello World</p>";
+
+        print_array("tab2d", tab2d);
+        my_tab = test_array(tab2d, ['a', 'b']);
+        print_array("my_tab", my_tab);
+    </script>
+</body>
+</html>
