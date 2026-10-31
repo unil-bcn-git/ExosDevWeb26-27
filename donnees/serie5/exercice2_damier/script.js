@@ -6,7 +6,7 @@ for(let i = 0; i<8; i++){
 
         new_div.innerHTML = `${i+1}.${j+1}`+ "&nbsp;";
 
-        if( j > 3){
+        if( i > 3){
             new_div.className = "white"
 
         }else{
