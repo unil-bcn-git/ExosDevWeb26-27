@@ -1,0 +1,96 @@
+class dice {
+    
+    constructor(name) {
+        this.name = name;
+        this.value = 6;
+        this.dice_place = document.getElementById(this.name);
+    }
+
+    display_dice(){
+        this.dice_place.className = "dice_class";
+        this.value = Math.floor(Math.random()*6)+1;
+        this.dice_place.innerHTML = this.value;
+    }
+
+    change_dice_color(){
+        if(this.value == 6){
+            this.dice_place.className = "dice_class_6";
+        } else {
+            this.dice_place.className = "dice_class";
+        }
+    }
+
+    restore_dice_color(){
+            this.dice_place.className = "dice_class";
+    }
+
+    get_dice_place(){
+        return this.dice_place;
+    }
+
+    get_dice_value(){
+        return this.value;
+    }
+}
+
+
+
+my_dice1 = new dice ("dice_1")
+
+my_dice2 = new dice ("dice_2")
+
+my_dice3 = new dice ("dice_3")
+
+my_button = document.getElementById("id_button");
+
+my_button.addEventListener("click", function(e){
+    my_dice1.display_dice();
+    my_dice2.display_dice();
+    my_dice3.display_dice();
+})
+
+dice_1_elem = my_dice1.get_dice_place();
+dice_2_elem = my_dice2.get_dice_place();
+dice_3_elem = my_dice3.get_dice_place();
+
+dice_1_elem.addEventListener("mouseenter", function(e){
+    my_dice1.change_dice_color();
+})
+
+dice_1_elem.addEventListener("mouseleave", function(e){
+    my_dice1.restore_dice_color();
+})
+
+dice_1_elem.addEventListener("dblclick", function(e){
+    if (my_dice1.get_dice_value() != 6) {
+        my_dice1.display_dice();
+    }
+})
+
+dice_2_elem.addEventListener("mouseenter", function(e){
+    my_dice2.change_dice_color();
+})
+
+dice_2_elem.addEventListener("mouseleave", function(e){
+    my_dice2.restore_dice_color();
+})
+
+dice_2_elem.addEventListener("dblclick", function(e){
+    if (my_dice2.get_dice_value() != 6) {
+        my_dice2.display_dice();
+    }
+})
+
+dice_3_elem.addEventListener("mouseenter", function(e){
+    my_dice3.change_dice_color();
+})
+
+dice_3_elem.addEventListener("mouseleave", function(e){
+    my_dice3.restore_dice_color();
+})
+
+dice_3_elem.addEventListener("dblclick", function(e){
+    if (my_dice3.get_dice_value() != 6) {
+        my_dice3.display_dice();
+    }
+})
