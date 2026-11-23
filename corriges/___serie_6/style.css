@@ -1,14 +1,17 @@
 .dice_class {
-    color: red;
     font-size: 30px ;
+    width: 100px;
+    align: center;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 2px;
 }
 
 .dice_class_6 {
-    color: blue;
-    font-size: 30px ;
-    width: 40px;
+    width: 100px;
     align: center;
-    border-color: black;
+    border-color: orangered;
     border-width: 2px;
     border-style: solid;
     border-radius: 2px;

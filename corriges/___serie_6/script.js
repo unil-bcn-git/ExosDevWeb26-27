@@ -1,15 +1,27 @@
+// CONST
+const dices_template = "./images_des/D";
+const dices_extension = ".jpg";
+
+
+
 class dice {
     
     constructor(name) {
         this.name = name;
         this.value = 6;
         this.dice_place = document.getElementById(this.name);
+                this.dices = [];
+        var dice_name = "";
+        for(let i = 1; i <= 6; i++){
+            dice_name = dices_template + i;
+            this.dices [i] = dice_name += dices_extension;; 
+        }
     }
 
     display_dice(){
         this.dice_place.className = "dice_class";
         this.value = Math.floor(Math.random()*6)+1;
-        this.dice_place.innerHTML = this.value;
+        this.dice_place.innerHTML = `<img src=${this.dices[this.value]}>`;
     }
 
     change_dice_color(){
